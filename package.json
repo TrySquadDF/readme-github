@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node ./express.ts",
-    "build": "tsc",
-    "start": "node ./dist/express.js"
+    "prod": "tsc & node ./dist/express.js"
   },
   "keywords": [],
   "author": "",
