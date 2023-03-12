@@ -8,11 +8,11 @@ const port = process.env.PORT || 3000;
 dotenv.config();
 
 interface EnvVariables {
-  TEST_TOKEN: string;
+  GITHUB_TOKEN: string;
 }
 
 export const env: EnvVariables = {
-  TEST_TOKEN: process.env.TEST_TOKEN as string,
+  GITHUB_TOKEN: process.env.GITHUB_TOKEN as string,
 };
 
 factory.listen(port, () => {
