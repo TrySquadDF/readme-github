@@ -1,5 +1,5 @@
 import express from "express";
-import card from "./api/languagesUsed";
+import card from "./api/language";
 import * as dotenv from "dotenv";
 
 const factory = express();
