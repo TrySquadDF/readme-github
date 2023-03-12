@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
 import { getstats, edge } from "../src/featchers";
-import { env } from "../index";
+import { env } from "../express";
 import { card, warning } from "../src/builders";
 
 export default async (req: Request, res: Response) => {
