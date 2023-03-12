@@ -1,7 +1,7 @@
 
 {
     "functions": {
-        "dist/api/*.js": {
+        "**/api/*.js": {
             "memory": 128,
             "maxDuration": 10
         }
