@@ -1,9 +1,13 @@
 
 {
-  "functions": {
-    "api/*.js": {
-      "memory": 128,
-      "maxDuration": 10
+  "version": 1,  
+  "builds": [
+    {
+        "src": "./index.js"
     }
-  }
+  ],
+  "routes": [{
+    "src": "./index.js",
+    "dest": "/"
+  }]
 } 

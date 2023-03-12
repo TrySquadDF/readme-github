@@ -18,4 +18,4 @@ export const env: EnvVariables = {
 factory.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
-factory.get("/", card);
+factory.get("/language", card);
