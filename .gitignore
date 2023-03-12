@@ -5,7 +5,7 @@ node_modules
 dist
 .pnp
 .pnp.js
-
+public
 # testing
 coverage
 
