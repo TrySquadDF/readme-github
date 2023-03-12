@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node ./express.ts",
-    "prod": "tsc"
+    "dev": "nodemon --exec ts-node ./index.ts",
+    "prod": "tsc",
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
