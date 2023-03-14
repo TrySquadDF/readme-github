@@ -16,7 +16,7 @@ export default async (req: Request, res: Response) => {
 
     res.setHeader(
       "Cache-Control",
-      `max-age=${86400}, s-maxage=${86400}, stale-while-revalidate=${86400}`
+      `max-age=${3600}, s-maxage=${3600}, stale-while-revalidate=${3600}`
     );
 
     let repoNodes = data.data.user.repositories.nodes;
