@@ -23,3 +23,19 @@ Readme-GitHub is an image generator that allows users to create colorful and inf
 
  <img src="https://readme-github.vercel.app/language?username=[123]" alt="Readme-GitHub" />
 
+### Deploy to [Vercel](https://vercel.app/)
+> **Note**
+> I strongly recommend using the vercel cli.
+> We are forking this project
+> ```js
+>   pnpm install
+> ```
+> creating an env configuration
+> ```js
+>   // .env 
+>   GITHUB_TOKEN = TOKEN
+> ```
+> [Get github token](https://github.com/settings/tokens)
+> ```js
+>   vercel deploy --prod
+> ```
