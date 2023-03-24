@@ -53,8 +53,6 @@ export default async (req: Request, res: Response) => {
         return resultValue;
       }, {});
 
-    console.log(languageStatistics);
-
     return res.send(card(Object.keys(languageStatistics)));
   } catch (e) {
     res.setHeader("Cache-Control", `no-cache, no-store, must-revalidate`);

@@ -124,6 +124,12 @@ const icon: Icon = {
     </clipPath>
     </defs>`,
   },
+  Vue: {
+    value: `<g xmlns="http://www.w3.org/2000/svg" size="62">
+    <path d="M38.1688 4.84375L31 17.1469L23.8313 4.84375H0L31 58.125L62 4.84375H38.1688Z" fill="#42B883"/>
+    <path d="M38.1687 4.84375L30.9999 17.1469L23.8312 4.84375H12.3999L30.9999 36.8125L49.5999 4.84375H38.1687Z" fill="#35495E"/>
+    </g>`,
+  },
 };
 
 const iconHandler = {
