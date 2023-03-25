@@ -30,12 +30,12 @@ Readme-GitHub is an image generator that allows users to create colorful and inf
 > ```js
 >   pnpm install
 > ```
-> creating an env configuration
+> creating an env configuration: [token](https://github.com/settings/tokens)
 > ```js
 >   // .env 
 >   GITHUB_TOKEN = TOKEN
 > ```
-> [Get github token](https://github.com/settings/tokens)
+>
 > ```js
 >   vercel deploy --prod
 > ```
