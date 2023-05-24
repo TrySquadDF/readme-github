@@ -2,11 +2,17 @@ import { Request, Response } from "express";
 import { getstats } from "../src/featchers";
 import { env } from "../index";
 import {
+  calculatePercentages,
   filteringByDate,
   getLanguageStatistics,
+  groupLanguages,
   sortBySize,
+  sortLanguagesAscending,
 } from "../src/utility";
 import type { statsFormat } from "../src/utility";
+import { PieChart } from "../src/graphic";
+
+export type LanguageInfo = { value: number; color: string; name: string };
 
 function comparison(first: statsFormat, sec: statsFormat) {
   let result = 0;
@@ -59,12 +65,31 @@ export default async (req: Request, res: Response) => {
     data.data.user.repositories.nodes
   );
 
+  console.log(currentStatistics);
+
   const difference = comparison(statisticsForThePastMonths, currentStatistics);
   const size = getAllSize(currentStatistics);
 
+  const groupedLanguageInfo = groupLanguages(currentStatistics, 2);
+  const stats = calculatePercentages(groupedLanguageInfo);
   const percentage = ((difference / size) * 100).toFixed(2);
 
-  console.log(percentage);
+  const LanguageInfo: LanguageInfo[] = [];
 
-  return res.send("ok");
+  for (const key in stats) {
+    LanguageInfo.push({
+      value: stats[key],
+      color: groupedLanguageInfo[key].color,
+      name: groupedLanguageInfo[key].name,
+    });
+  }
+
+  LanguageInfo.sort((a, b) => a.value - b.value);
+
+  const Chart = new PieChart(200, 200, 20, 10);
+  Chart.draw(LanguageInfo, { lines: size, change: percentage });
+
+  res.set("Content-Type", "image/png");
+
+  return res.send(Chart.saveToFile());
 };

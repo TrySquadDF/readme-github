@@ -1,3 +1,5 @@
+import { statsFormat } from "./transformInfo";
+
 export function useAnalyze<T extends Record<string, Record<string, any>>>(
   object: T,
   analysisKey: PropertyKey
@@ -39,4 +41,21 @@ export function useAnalyze<T extends Record<string, Record<string, any>>>(
     size: size,
     items: result,
   };
+}
+
+export function calculatePercentages(
+  languages: statsFormat
+): Record<string, number> {
+  let totalSize = 0;
+  for (const language of Object.values(languages)) {
+    totalSize += language.size;
+  }
+
+  const percentages: Record<string, number> = {};
+  for (const [key, language] of Object.entries(languages)) {
+    const percent = (language.size / totalSize) * 100;
+    percentages[key] = Math.round(percent * 100) / 100;
+  }
+
+  return percentages;
 }
