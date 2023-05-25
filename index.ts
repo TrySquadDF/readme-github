@@ -1,7 +1,5 @@
 import * as dotenv from "dotenv";
 import { Factory } from "./src/utility/wrapper";
-import { NextFunction, Request, Response } from "express";
-import { warning } from "./src/builders";
 import card from "./api/language";
 import stats from "./api/stats";
 
@@ -16,7 +14,7 @@ export const env: EnvVariables = {
 };
 
 const server = new Factory(process.env.PORT || 3000);
-server.asyncEndpoint("/test", card);
+server.asyncEndpoint("/language", card);
 server.asyncEndpoint("/st", stats);
 
 server.registerErrorHandler();

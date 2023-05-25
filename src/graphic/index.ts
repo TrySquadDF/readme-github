@@ -1,5 +1,7 @@
-import { Canvas, createCanvas, registerFont } from "canvas";
+import { Canvas, createCanvas, GlobalFonts } from "@napi-rs/canvas";
 import { LanguageInfo } from "../../api/stats";
+
+GlobalFonts.registerFromPath("./font/VK Sans Medium.ttf", "VK sans display");
 
 // @test-user: mikita-kandratsyeu - big marker name
 class PieChart {
@@ -70,8 +72,6 @@ class PieChart {
 
     this.ctx.fill();
     this.ctx.stroke();
-
-    registerFont("./font/VK Sans Medium.ttf", { family: "VK sans display" });
   }
 
   draw(

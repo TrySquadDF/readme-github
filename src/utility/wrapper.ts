@@ -16,10 +16,10 @@ async function errorHandlerMiddleware(
   next: NextFunction
 ) {
   console.error(err);
-  res.status(500).send(warning);
+  res.setHeader("Content-Type", "image/svg+xml");
+  res.status(200).send(warning);
 }
 
-// Добавить endpoint
 export class Factory {
   private server = express();
 
