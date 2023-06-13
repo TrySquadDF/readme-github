@@ -1,26 +1,32 @@
-import { Canvas, createCanvas, GlobalFonts } from "@napi-rs/canvas";
+import {
+  Canvas,
+  createCanvas,
+  GlobalFonts,
+  SKRSContext2D,
+} from "@napi-rs/canvas";
 import { LanguageInfo } from "../../api/stats";
 
 GlobalFonts.registerFromPath("./font/VK Sans Medium.ttf", "VK sans display");
 
 // @test-user: mikita-kandratsyeu - big marker name
 class PieChart {
-  private width: number;
-  private height: number;
   private canvas: Canvas;
-  private ctx: CanvasRenderingContext2D;
+  private ctx: SKRSContext2D;
   private centerX: number;
   private centerY: number;
   private radius: number;
   private gapDegrees: number;
   private gapRadians: number;
-  private lineWidth: number;
 
-  constructor(width: number, height: number, lineWidth = 50, margin = 0) {
+  constructor(
+    private width: number,
+    private height: number,
+    private lineWidth = 50,
+    private margin = 0
+  ) {
     this.width = width;
     this.height = height;
     this.canvas = createCanvas(this.width, this.height);
-    // @ts-ignore
     this.ctx = this.canvas.getContext("2d");
     this.centerX = this.width / 2;
     this.centerY = this.height - 30;
@@ -152,15 +158,15 @@ class PieChart {
       const { lines, change } = header;
 
       let startCoords: number = 15;
-      let heightShift: number = 0;
+      let heightShift: number = 5;
 
       if (lines) {
-        this.ctx.font = "DEMIBOLD 13px VK sans display";
+        this.ctx.font = "13px VK sans display";
         this.ctx.fillStyle = "rgba(255,255,255,0.75)";
         this.ctx.fillText("Lines of code", startCoords, 20);
 
-        const textMetrics = this.ctx.measureText("Line code");
-        heightShift =
+        const textMetrics = this.ctx.measureText("Lines of code");
+        heightShift +=
           textMetrics.actualBoundingBoxAscent +
           textMetrics.actualBoundingBoxDescent;
 
@@ -173,7 +179,7 @@ class PieChart {
       }
 
       if (change) {
-        this.ctx.font = "DemiBold 8px VK sans display";
+        this.ctx.font = "8px VK sans display";
         this.ctx.fillStyle = "#23893A";
         this.ctx.fillText(`+ ${change}%`, startCoords + 5, 30 + heightShift);
       }
