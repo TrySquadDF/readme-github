@@ -15,6 +15,10 @@ async function errorHandlerMiddleware(
   res: Response,
   next: NextFunction
 ) {
+  res.setHeader(
+    "Cache-Control",
+    `max-age=${0}, s-maxage=${0}, stale-while-revalidate=${0}`
+  );
   console.error(err);
   res.setHeader("Content-Type", "image/svg+xml");
   res.status(200).send(warning);
