@@ -1,0 +1,28 @@
+{
+	"name": "readme-github",
+	"private": true,
+	"type": "module",
+	"engines": {
+		"node": ">= 20"
+	},
+	"packageManager": "pnpm@9.3.0",
+	"scripts": {
+		"lint": "turbo run lint --filter=\"./apps/api\"",
+		"typecheck": "turbo run typecheck --filter=\"./apps/api\"",
+		"prebuild": "pnpm build:assets",
+		"codegen": "turbo run codegen --filter=\"./apps/api\"",
+		"build": "turbo run build --filter=\"./apps/api\"",
+		"build:assets": "pnpm collect:static && pnpm collect:dynamic",
+		"collect:static": "go run ./cli/main.go merge-svg -path ./apps/api/source/static-render -filename static-collections",
+		"collect:dynamic": "go run ./cli/main.go merge-svg -path ./apps/api/source/dynamic-render -filename dynamic-collections -parse"
+	},
+	"keywords": [],
+	"author": "TrySquad_DF <sjpdkedkdjkdkdjdmddd@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"@apollo/rover": "^0.23.0",
+		"turbo": "^2.0.6",
+		"typescript": "^5.5.3",
+		"vercel": "^34.3.0"
+	}
+}

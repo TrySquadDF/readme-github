@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Default",
+    "compilerOptions": {
+      "module": "NodeNext",
+      "declaration": true,
+      "declarationMap": true,
+      "esModuleInterop": true,
+      "incremental": true,
+      "isolatedModules": true,
+      "lib": ["ES2021"],
+      "moduleDetection": "force",
+      "noUncheckedIndexedAccess": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "ES2021"
+    }
+}

@@ -1,0 +1,11 @@
+overwrite: true
+schema: './schema.graphql'
+documents: 'src/**/*.ts'
+generates:
+  src/github/generated-types/index.ts:
+    overwrite: true
+    schema: 'src/github/schema.graphql'
+    documents: 'src/github/**/*.graphql'
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'

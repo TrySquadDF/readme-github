@@ -1,0 +1,17 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "tasks": {
+        "build": {
+            "dependsOn": ["^build"]
+        },
+        "lint": {
+            "cache": true
+        },
+        "typecheck": {
+            "dependsOn": [
+                "^typecheck"
+            ],
+            "cache": true
+        }
+    }
+}
